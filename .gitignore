@@ -4,9 +4,9 @@ __pycache__/
 .eggs/
 .python-version
 .tox/
+build/
+dist/
 prof/
-provision/google-api-credentials.json
-provision/smtp-credentials.json
 *.egg-info/
 
 # IDEs
