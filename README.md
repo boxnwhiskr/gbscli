@@ -2,7 +2,7 @@
 
 ## Installation
 
-The CLI supports Python 3.4 or higher. In most cases you may use `pip` to
+The CLI supports Python 3.4 or higher. In most cases, you may use `pip` to
 install the CLI:
 
     pip install gbscli
@@ -16,7 +16,7 @@ Run `gbs` to verify:
 
 ### Create an account and obtain the service credential
 
-You must register new account with your e-mail address:
+You must register a new account with your e-mail address:
 
     gbs account create "YOUR-EMAIL-ADDRESS" "YOUR NAME"
 
@@ -25,7 +25,7 @@ Click the link and copy the content or use `curl` or `wget` to download the
 credential.
 
 Please note that the URL is temporary and won't work twice. If you want to get
-another service credential use the following command to get another link:
+another service credential, use the following command to get another link:
 
     gbs account credential "YOUR-EMAIL-ADDRESS"
 
@@ -38,15 +38,15 @@ Run the following command to check if the credential registered correctly:
 
 ### Services, experiments, and goals
 
-A `service` represents a website or an app. Single account may have one or more
-services. To see registered services run the following command:
+A `service` represents a website or an app. A single account may have one or
+more services. To see registered services run the following command:
 
     gbs service list
 
 If you've just created new account, the command will show an empty list.
 
 Each service may contain zero or more `experiment`s and `goal`s. Each
-`experiment` represents independent A/B test session and each `goal` represents
+`experiment` represents independent A/B test session, and each `goal` represents
 goals or objectives of the service such as new customer acquisition, purchase
 completion, or reach to the target page.
 
