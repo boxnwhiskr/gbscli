@@ -57,11 +57,26 @@ you to avoid local optimizations caused by conflicting experiments.
 
 ### Configure experiments
 
+...
+
 ### Configure goals
 
-### Apply experiments to the website using Javascript SDK
+...
+
+### Apply experiments to the service using SDK
+
+Now you have to apply experiments to your service using GreedyBandit service's
+Javascript SDK. Please visit the
+[SDK's homepage](https://github.com/boxnwhiskr/gbsdk-js) to see the instruction.
+
+If your service is not a web-site, you should use HTTP API directly:
+
+* Use [Collecting API](https://api.greedybandit.com/ui/#/collect) to send logs
+* Use [Assignment API](https://api.greedybandit.com/ui/#/assignment) to get the
+  assignment table.
 
 ### Monitor the performance on-going experiments
+
 
 ## Development
 
