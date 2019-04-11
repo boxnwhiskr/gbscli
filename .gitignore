@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+.pytest_cache/
+.eggs/
+.python-version
+.tox/
+prof/
+provision/google-api-credentials.json
+provision/smtp-credentials.json
+*.egg-info/
+
+# IDEs
+.idea
+*.iml
+
+# OS
+.DS_Store
