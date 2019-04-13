@@ -32,6 +32,9 @@ setuptools.setup(
         'click==7.0',
         'requests==2.21.0',
     ],
+    setup_requires=[
+        'pytest-runner==4.4',
+    ],
     tests_require=[
         'pytest==4.4.0',
         'pytest-flake8==1.0.4',
