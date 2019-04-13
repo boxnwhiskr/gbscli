@@ -30,6 +30,11 @@ def cred():
         yield f
 
 
+@pytest.fixture
+def header():
+    return auth(CRED)
+
+
 URL = 'https://api.greedybandit.com'
 
 
@@ -56,9 +61,9 @@ def test_req_svc_cred(runner, req_mock):
     assert json.loads(res.output) == {}
 
 
-def test_describe_account(runner, req_mock, cred):
+def test_describe_account(runner, req_mock, cred, header):
     adapter = req_mock.get(URL + '/accounts/AID', json={'A': 0},
-                           request_headers=auth(CRED))
+                           request_headers=header)
     res = runner.invoke(cli.describe_acount, ['--cred', cred.name])
 
     assert adapter.called_once
@@ -66,9 +71,9 @@ def test_describe_account(runner, req_mock, cred):
     assert json.loads(res.output) == {'A': 0}
 
 
-def test_list_services(runner, req_mock, cred):
+def test_list_services(runner, req_mock, cred, header):
     adapter = req_mock.get(URL + '/services', json={'A': 0},
-                           request_headers=auth(CRED))
+                           request_headers=header)
     res = runner.invoke(cli.list_services, ['--cred', cred.name])
 
     assert adapter.called_once
@@ -76,9 +81,9 @@ def test_list_services(runner, req_mock, cred):
     assert json.loads(res.output) == {'A': 0}
 
 
-def test_get_service(runner, req_mock, cred):
+def test_get_service(runner, req_mock, cred, header):
     adapter = req_mock.get(URL + '/services/s0', json={'A': 0},
-                           request_headers=auth(CRED))
+                           request_headers=header)
     res = runner.invoke(cli.get_service, ['s0', '--cred', cred.name])
 
     assert adapter.called_once
@@ -86,9 +91,9 @@ def test_get_service(runner, req_mock, cred):
     assert json.loads(res.output) == {'A': 0}
 
 
-def test_delete_service(runner, req_mock, cred):
+def test_delete_service(runner, req_mock, cred, header):
     adapter = req_mock.delete(URL + '/services/s0', json={'A': 0},
-                              request_headers=auth(CRED))
+                              request_headers=header)
     res = runner.invoke(cli.delete_service, ['s0', '--cred', cred.name])
 
     assert adapter.called_once
@@ -96,8 +101,7 @@ def test_delete_service(runner, req_mock, cred):
     assert json.loads(res.output) == {'A': 0}
 
 
-def test_get_arms_stats(runner, req_mock, cred):
-    header = auth(CRED)
+def test_get_arms_stats(runner, req_mock, cred, header):
     header.update({'Accept': 'text/csv'})
     adapter = req_mock.get(URL + '/stats/arms?svc_id=s&exp_id=e', json={},
                            request_headers=header)
@@ -108,8 +112,7 @@ def test_get_arms_stats(runner, req_mock, cred):
     assert json.loads(res.output) == {}
 
 
-def test_get_segs_stats(runner, req_mock, cred):
-    header = auth(CRED)
+def test_get_segs_stats(runner, req_mock, cred, header):
     header.update({'Accept': 'text/csv'})
     adapter = req_mock.get(URL + '/stats/segs?svc_id=s&exp_id=e', json={},
                            request_headers=header)
@@ -120,8 +123,7 @@ def test_get_segs_stats(runner, req_mock, cred):
     assert json.loads(res.output) == {}
 
 
-def test_get_goals_stats(runner, req_mock, cred):
-    header = auth(CRED)
+def test_get_goals_stats(runner, req_mock, cred, header):
     header.update({'Accept': 'text/csv'})
     adapter = req_mock.get(URL + '/stats/goals?svc_id=s&exp_id=e', json={},
                            request_headers=header)
