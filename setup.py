@@ -34,6 +34,8 @@ setuptools.setup(
     ],
     tests_require=[
         'pytest==4.4.0',
+        'pytest-flake8==1.0.4',
+        'pytest-watch==4.2.0',
         'requests-mock==1.5.2',
     ],
     entry_points='''
