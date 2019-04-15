@@ -51,7 +51,7 @@ def create_account(email, name, cred, url):
 @account.command(name='credential')
 @click.argument('email')
 @add_options(common_options)
-def req_svc_cred(email, cred, url):
+def req_cred(email, cred, url):
     """Request new service credential.
 
     Let the service send an e-mail containing a link to new service credential.

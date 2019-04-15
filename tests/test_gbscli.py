@@ -51,10 +51,10 @@ def test_create_account(runner, req_mock):
     assert json.loads(res.output) == {'A': 0}
 
 
-def test_req_svc_cred(runner, req_mock):
+def test_req_cred(runner, req_mock):
     adapter = req_mock.post(URL + '/accounts/service_credential_request?'
                                   'email=alan@mail.com')
-    res = runner.invoke(cli.req_svc_cred, ['alan@mail.com'])
+    res = runner.invoke(cli.req_cred, ['alan@mail.com'])
 
     assert adapter.called_once
     assert res.exit_code == 0
