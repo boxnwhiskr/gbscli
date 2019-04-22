@@ -36,7 +36,7 @@ setuptools.setup(
         'pytest-runner==4.4',
     ],
     tests_require=[
-        'pytest==4.4.0',
+        'pytest==4.4.1',
         'pytest-flake8==1.0.4',
         'pytest-watch==4.2.0',
         'requests-mock==1.5.2',
