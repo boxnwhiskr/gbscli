@@ -30,7 +30,7 @@ setuptools.setup(
     ],
     install_requires=[
         'click==7.0',
-        'requests==2.21.0',
+        'requests==2.31.0',
     ],
     setup_requires=[
         'pytest-runner==4.4',
